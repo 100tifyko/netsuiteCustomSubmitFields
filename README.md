@@ -22,7 +22,7 @@ define(['./lib_cha_jsmodule2'], function (js) {
     itemObj['quantity'] = 1;
     itemObj["location"] = storeId;
     inventoryassignmentObj['lineId'] = 0;
-    inventoryassignmentObj['issueinventorynumber'] = loteSerial[_i7][_j]["inventorynumber"];
+    inventoryassignmentObj['issueinventorynumber'] = loteSerial[_i7][_j]["inventorynumber"];//issueinventorynumber corresponde al id del campo
     inventoryassignmentObj['binnumber'] = binNumber;
     inventoryassignmentObj['inventorystatus'] = 1;
     inventoryassignmentObj['quantity'] = 1;
@@ -30,16 +30,12 @@ define(['./lib_cha_jsmodule2'], function (js) {
     inventorydetailObj["inventoryassignment"] = inventoryassignmentArr;
     itemObj["inventorydetail"] = inventorydetailObj;
     itemArr.push(itemObj);
-    itemObj['lineId'] = k;
-    itemObj['itemreceive'] = false;
-    itemArr.push(itemObj);
     values['item'] = itemArr;
     obj2createUpdateTransform['values'] = values;
-    obj2createUpdateTransform['from'] = "salesorder";
-    obj2createUpdateTransform['id'] = recordId;
+    obj2createUpdateTransform['from'] = "salesorder";// se genera un record.transform porque tiene la propiedad from
+    obj2createUpdateTransform['id'] = recordId;//record.load si tiene la propiedad id y no from
     obj2createUpdateTransform['recordType'] = "itemfulfillment";
-    obj2createUpdateTransform['isDynamic'] = true;
-    log.debug('itemfulfillmentAdress' + _i7, obj2createUpdateTransform);
+    obj2createUpdateTransform['isDynamic'] = true;//modo dinamico o standard
     var _response = js.recordParser(obj2createUpdateTransform);
     recordId = _response.recordId;
     
@@ -66,7 +62,7 @@ define(['./lib_cha_jsmodule2'], function (js) {
         }
     }
 
-    values['entity'] = clientId;
+    values['entity'] = clientId;//las propiedades correspondel al iddel cmapo
     values['location'] = storeId;
     values['trandate'] = tranDate;
     values['memo'] = referencia;
@@ -83,8 +79,8 @@ define(['./lib_cha_jsmodule2'], function (js) {
     values["custbody_cha_delivery_date"] = request.deliveryDateMR;
     values["custbody_cha_delivery_frequency"] = request.deliveryFrequencyMR;
     values['orderstatus'] = 'B';
-    values['item'] = itemArr;
-    obj2createUpdateTransform['recordType'] = "salesorder";
+    values['item'] = itemArr;//en este caso la propiedad es el nombre de la sublista
+    obj2createUpdateTransform['recordType'] = "salesorder";// record.create porque no tiene id
     obj2createUpdateTransform['isDynamic'] = true;
     obj2createUpdateTransform['values'] = values;
     var response = js.recordParser(obj2createUpdateTransform);
