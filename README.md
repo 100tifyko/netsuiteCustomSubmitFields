@@ -7,7 +7,7 @@
 4. puede introducir valores desde cabecera hasta sublistas de sublist subrecords
 
 # Uso
-define(['./lib_cha_jsmodule2'], function (js) {
+define(['./lib_recordParser'], function (js) {
 
     var inventoryassignmentObj = {};
     var inventoryassignmentArr = [];
