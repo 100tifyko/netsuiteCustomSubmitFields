@@ -1,4 +1,11 @@
 # netsuiteCustomSubmitFields
+
+#funciones
+1. valida que los campos/sublistas que se quierne poner existan, si no existen ignora la propiedad y pone los que si encuentre.
+2. parsea los campos tipo fecha y los tipo moneda.
+3. puede selecionar lineas con selectLine, selectNewLine y findSublistLineWithValue.
+4. puede introducir valores desde cabecera hasta sublistas de sublist subrecords
+
 # Uso
 define(['./lib_cha_jsmodule2'], function (js) {
 
