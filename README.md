@@ -9,10 +9,8 @@ define(['./lib_cha_jsmodule2'], function (js) {
     var itemArr = [];
     var values = {};
     var obj2createUpdateTransform = {};
-
-//ejemplo con inventoryDetail
-
-//si se especifica lineId se agregara el contenido a esa linea con selectLine, si se especifica lineSearch se buscara una linea con findSublistLineWithValue, si no se especifica lineId ni lineSearch se inserta una nueva linea con selectNewLine, estas propiedades funcionan incluso en subrecords
+    //ejemplo con inventoryDetail
+    //si se especifica lineId se agregara el contenido a esa linea con selectLine, si se especifica lineSearch se buscara una linea con findSublistLineWithValue, si no se especifica lineId ni lineSearch se inserta una nueva linea con selectNewLine, estas propiedades funcionan incluso en subrecords
     itemObj["lineSearch"] = {};//opcional
     itemObj["lineSearch"]["fieldId"] = "internalid";//opcional
     itemObj["lineSearch"]["value"] = invoiceId.toString();//opcional
@@ -40,8 +38,7 @@ define(['./lib_cha_jsmodule2'], function (js) {
     log.debug('itemfulfillmentAdress' + _i7, obj2createUpdateTransform);
     var _response = js.recordParser(obj2createUpdateTransform);
     recordId = _response.recordId;
-
-//ejemplo de una orden de venta
+    //ejemplo de una orden de venta
     for (var _i4 = 0; _i4 < item.length; _i4++) {
         for (var j = 0; j < item[_i4].quantity; j++) {
             itemObj = {};
